@@ -113,7 +113,7 @@
         <br>
     </main>
 
-    <footer style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.2rem 0;"> 
+    <footer class="d-block d-md-none" style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.2rem 0;"> 
     <div class="hstack gap-3"> <!-- Alineación en fila, solo en pantallas pequeñas -->
         <div class="p-1">
             <button class="btn btn-primary" type="button" aria-label="Perfil" onclick="window.location.href='funciones/usuario/perfil.php'">

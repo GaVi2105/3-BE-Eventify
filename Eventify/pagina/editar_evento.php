@@ -112,8 +112,8 @@
         </form>
     </main>
 
-    <footer style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.2rem 0;"> 
-    <div class="hstack gap-3"> <!-- Alineación en fila, solo en pantallas pequeñas -->
+    <footer class="d-block d-md-none" style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.2rem 0;"> 
+    <div class="hstack gap-3">
         <div class="p-1">
             <button class="btn btn-primary" type="button" aria-label="Perfil" onclick="window.location.href='../usuario/perfil.php'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
