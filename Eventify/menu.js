@@ -27,3 +27,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Funcion para mostrar el footer al hacer scroll hacia arriba en cualquier parte de la página
 
+// Validación del formulario
+(function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+})();
