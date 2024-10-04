@@ -12,8 +12,8 @@
 <body class="register">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container-fluid">
-            <a href="../../index.php" width="60" height="60">
-                <img src="../../icono/Logo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+            <a href="../../index.php" width="50" height="50">
+                <img src="../../icono/Logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
             </a> <a class="navbar-brand" href="../../index.php">Eventify</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,13 +85,10 @@
                             <option value="organizador">Organizador</option>
                         </select>
                     </div>
-
-                    <!-- Campo para subir imagen de perfil -->
-                    <div class="mb-3">
-                        <label for="foto_perfil" class="form-label">Foto de perfil (opcional):</label>
-                        <input type="file" class="form-control" id="foto_perfil" name="foto_perfil" accept="image/*">
-                    </div>
-
+                    <!-- <div class="mb-3">
+                        <label for="imagen_perfi">Subir imagen de perfil</label>
+                        <input type="file" name="imagen_pefil" id="imagen_perfil" accept="image/*"required>
+                    </div> -->
                     <button type="submit" class="btn btn-primary">Registrarse</button>
                     <p class="mt-3">¿Ya tienes una cuenta? <a href="login.php">Inicia sesión aquí</a></p>
                 </form>

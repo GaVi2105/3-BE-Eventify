@@ -10,8 +10,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container-fluid">
-        <a href="../../index.php" width="60" height="60">
-               <img src="../../icono/Logo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+        <a href="../../index.php" width="50" height="50">
+               <img src="../../icono/Logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
             </a>            <a class="navbar-brand" href="../../index.php">Eventify</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
@@ -30,7 +30,7 @@
         </div>
     </nav>
 
-    <main class="container mt-4">
+    <main style="padding-top: 5%;" class="container mt-4">
         <br>
         <h1 class="mb-4">Modificar Perfil</h1>
         <?php if (isset($mensaje)): ?>

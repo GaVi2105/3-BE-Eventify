@@ -22,39 +22,36 @@ h1:hover, h2:hover {
 
 main {
     flex: 1;
-    padding-top: 80px;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
+    padding-top: auto;
+    padding: 0.1rem;
+    max-width: 1920px;
+    max-height: 1080px;
+    margin: 10px auto;
+    width: 80%;
     box-sizing: border-box;
 }
 
 .navbar {
-    background: linear-gradient(45deg, #007BFF, #0056b3);
-    padding: 0.75rem 1rem;
+    background: linear-gradient(50deg, #007bff, #0056b3);
+    padding: 0.2rem 0.2rem;
     position: fixed;
-    top: 0;
+    top: auto;
     left: 0;
     right: 0;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px (50deg, #001aff, #278fff);;
     transition: background-color 0.3s ease-in-out;
-}
-
-.navbar.scrolled {
-    background-color: rgba(0, 123, 255, 0.9);
 }
 
 .navbar .navbar-brand {
     font-size: 1.8rem;
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
 }
 
 .navbar-nav .nav-item {
-    margin-left: 1rem;
+    margin-left: 2rem;
 }
 
 .navbar-nav .nav-link {
@@ -69,10 +66,12 @@ main {
 }
 
 .navbar-toggler {
-    color: #fff;
+    height: 55px;
+    border-radius: 60px;
+    color: #ffffff6c;
     border: none;
-    font-size: 1.5rem;
-    transition: transform 0.3s ease;
+    font-size: 1rem;
+    transition: transform 1s ease;
 }
 
 .navbar-toggler:hover {
@@ -117,7 +116,7 @@ button[type="submit"],
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s ease;
+    transition: background-color 0.5s, transform 0.5s ease;
     position: relative;
     overflow: hidden;
 }
@@ -210,7 +209,7 @@ footer .btn-icon svg {
     overflow-x: auto;
     padding: 10px;
     scroll-snap-type: x mandatory;
-    gap: 10px;
+    gap: 5px;
     scroll-behavior: smooth;
 }
 
@@ -254,21 +253,20 @@ footer .btn-icon svg {
 
 @media (max-width: 768px) {
     .event-carousel {
-        padding: 5px;
+        padding: 0;
         gap: 5px;
+        width: auto;
+        height: auto;
     }
 
     .event-item {
         width: 60px;
         height: 60px;
+        margin-bottom: 0;
     }
 
     .event-item:hover {
-        transform: scale(1);
-    }
-
-    .event-info {
-        font-size: 0.5em;
+        transform: scale(0.9);
     }
 }
 
@@ -336,14 +334,14 @@ input[type="password"]:focus {
 }
 
 .login-container {
-    background-color: rgba(255, 255, 255, 0.788);
+    background-color: rgba(255, 255, 255, 0.700);
     border-radius: 25px;
     padding: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 100px 15px rgba(0, 0, 0, 0.3);
     width: 90%;
     max-width: 500px;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -372,7 +370,7 @@ input[type="password"]:focus {
 
 .register-container {
     background-color: rgba(255, 255, 255, 0.774);
-    border-radius: 50px;
+    border-radius: 20px;
     padding: 50px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
     width: 50%;
@@ -387,14 +385,16 @@ input[type="password"]:focus {
     overflow-y: auto;
 }
 
-/* Media query para pantallas móviles */
 @media (max-width: 768px) {
     .register-container {
-        width: 80%; /* Hacer el contenedor más ancho en móviles */
-        max-width: 80%; /* Limita el ancho máximo en móviles */
-        padding: 30px; /* Reducir el padding para que se ajuste mejor */
-        border-radius: 20px; /* Reducir el radio de los bordes en móviles */
-        max-height: 80%; /* Ajustar el contenedor para pantallas más pequeñas */
+        width: 100%;
+        height: 100%;
+        max-width: 90%;
+        padding: 25px;
+        border-radius: 20px;
+        max-height: 70%;
+        top: 50%;
+        left: 50%;
     }
 }
 
@@ -436,6 +436,10 @@ input[type="password"]:focus {
     overflow-y: auto;
 }
 
+.container {
+    padding-top: 5%;
+}
+
 /* Media query para pantallas móviles */
 @media (max-width: 768px) {
     .fondo-container {
@@ -444,5 +448,29 @@ input[type="password"]:focus {
         padding: 30px; /* Reducir el padding para que se ajuste mejor */
         border-radius: 20px; /* Reducir el radio de los bordes en móviles */
         max-height: 80%; /* Ajustar el contenedor para pantallas más pequeñas */
+    }
+}
+
+@media (max-width:  480px) {
+    .container-fluid {
+        width: 1000px;
+        height: 55px;
+    }
+    .navbar  {
+        width: auto;
+        height: 75px;
+
+    }
+    .container {
+        padding-top: 10%;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .mt-5 {
+        height: 10px;
+        width: auto;
+        padding: 5px;
     }
 }
