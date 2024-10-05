@@ -3,12 +3,11 @@ include '../configuracion/config.php';  // Incluye la conexión a la base de dat
 
 $error = '';
 
-// Verifica si el formulario fue enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     // Obtiene los datos del formulario
     $nombre = mysqli_real_escape_string($conn, $_POST['nombre']);
     $correo = mysqli_real_escape_string($conn, $_POST['correo']);
+    $genero = mysqli_real_escape_string($conn, $_POST['genero']);
     $contrasenia = $_POST['contrasenia'];
     $confirmar_contrasenia = $_POST['confirmar_contrasenia'];
     $edad = mysqli_real_escape_string($conn, $_POST['edad']);
@@ -58,14 +57,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($result_ci->num_rows > 0) {
                     $error = "Esta cédula ya está registrada.";
                 } else {
+                    // Manejar la carga de la imagen de perfil
+                    if (isset($_FILES['imagen_perfil']) && $_FILES['imagen_perfil']['error'] == 0) {
+                        $imagen_perfil = file_get_contents($_FILES['imagen_perfil']['tmp_name']);
+                    } else {
+                        // Imagen genérica si no se sube ninguna
+                        $imagen_perfil = file_get_contents('../imagenes/imagen_generica.png');
+                    }
+
                     // Si todo está bien, realiza el hash de la contraseña
                     $contrasenia_hash = password_hash($contrasenia, PASSWORD_DEFAULT);
 
-                    // Inserta el nuevo usuario en la base de datos
-                    $sql = "INSERT INTO Usuario (Nombre, Correo_electronico, Contrasenia, Edad, Numero_telefono, CI, Tipo_usuario) 
-                            VALUES (?, ?, ?, ?, ?, ?, ?)";
+                    // Inserta el nuevo usuario en la base de datos, incluyendo género y foto de perfil
+                    $sql = "INSERT INTO Usuario (Nombre, Correo_electronico, Contrasenia, Edad, Numero_telefono, CI, Tipo_usuario, Genero, Imagen_perfil) 
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("sssssss", $nombre, $correo, $contrasenia_hash, $edad, $telefono, $ci, $tipo_usuario);
+                    $stmt->bind_param("sssssssss", $nombre, $correo, $contrasenia_hash, $edad, $telefono, $ci, $tipo_usuario, $genero, $imagen_perfil);
 
                     if ($stmt->execute()) {
                         $id_usuario = $conn->insert_id;
@@ -93,47 +100,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
-/* if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nombre = $_POST['nombre'];
-    $email = $_POST['email'];
-
-    $directorio_destino = "uploads/perfiles/";
-    $archivo_imagen = $directorio_destino . basename($_FILES["imagen_perfil"]["name"]);
-    $tipo_imagen = strtolower(pathinfo($archivo_imagen, PATHINFO_EXTENSION));
-    $uploadOk = 1;
-
-    $check = getimagesize($_FILES["imagen_perfil"]["tmp_name"]);
-    if ($check !== false) {
-        $uploadOk = 1;
-    } else {
-        echo "El archivo no es una imagen.";
-        $uploadOk = 0;
-    }
-
-    if ($_FILES["imagen_perfil"]["size"] > 500000) {
-        echo "El archivo es demasiado grande.";
-        $uploadOk = 0;
-    }
-
-    if ($tipo_imagen != "jpg" && $tipo_imagen != "png" && $tipo_imagen != "jpeg" && $tipo_imagen != "gif") {
-        echo "Solo se permiten archivos JPG, JPEG, PNG y GIF.";
-        $uploadOk = 0;
-    }
-
-    if ($uploadOk == 1) {
-        if (move_uploaded_file($_FILES["imagen_perfil"]["tmp_name"], $archivo_imagen)) {
-            echo "La imagen ". htmlspecialchars(basename($_FILES["imagen_perfil"]["name"])) . " ha sido subida.";
-            $sql = "INSERT INTO usuarios (nombre, email, imagen_perfil) VALUES ('$nombre', '$email', '$archivo_imagen')";
-            if (mysqli_query($conn, $sql)) {
-                echo "Registro exitoso.";
-            } else {
-                echo "Error al registrar el usuario: " . mysqli_error($conn);
-            }
-        } else {
-            echo "Hubo un error al subir la imagen.";
-        }
-    }
-} */
 include '../../pagina/register.view.php';
 ?>

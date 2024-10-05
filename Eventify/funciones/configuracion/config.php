@@ -120,19 +120,6 @@ function subir_imagen($file, $id_evento)
         return "El archivo es demasiado grande. El tamaño máximo permitido es 100MB.";
     }
 
-    // Obtener información de la imagen
-    $image_info = getimagesize($file['tmp_name']);
-    if ($image_info === false) {
-        return "No se pudo obtener la información de la imagen.";
-    }
-
-    // Validar las dimensiones de la imagen (máximo 3840x2160)
-    $max_width = 3840;
-    $max_height = 2160;
-    if ($image_info[0] > $max_width || $image_info[1] > $max_height) {
-        return "La resolución de la imagen es demasiado alta. El máximo permitido es 4K (3840x2160 píxeles).";
-    }
-
     // Leer el contenido del archivo de imagen
     $imagen_contenido = file_get_contents($file['tmp_name']);
     if ($imagen_contenido === false) {
@@ -167,5 +154,28 @@ function obtener_eventos_recientes($limit = 10) {
     $stmt->bind_param("i", $limit);
     $stmt->execute();
     return $stmt->get_result();
+}
+
+// *** Nueva función para mostrar la imagen de perfil del usuario ***
+function mostrar_imagen_perfil($id_usuario) {
+    global $conn;
+    
+    // Consulta para obtener la imagen de perfil del usuario
+    $sql = "SELECT Imagen_perfil FROM Usuario WHERE ID_usuario = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id_usuario);
+    $stmt->execute();
+    $stmt->store_result();
+    $stmt->bind_result($imagen_perfil);
+    $stmt->fetch();
+
+    if ($imagen_perfil) {
+        header("Content-Type: image/jpeg");
+        echo $imagen_perfil;
+    } else {
+        // Mostrar una imagen predeterminada si no tiene una imagen de perfil
+        header("Content-Type: image/png");
+        readfile('../imagenes/imagen_generica.png');
+    }
 }
 ?>

@@ -251,6 +251,13 @@ footer .btn-icon svg {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
+.perfil-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 @media (max-width: 768px) {
     .event-carousel {
         padding: 0;
