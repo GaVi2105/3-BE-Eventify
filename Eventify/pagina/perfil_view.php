@@ -41,9 +41,9 @@
 
     <main class="container mt-3">
         <br>
-        <div class="row fondo-container">
+        <div class="row fondo-container ">
             <h1 class="mb-4">Mi Perfil</h1>
-            <img src="mostrar_imagen_perfil.php?id=<?php echo $user['ID_usuario']; ?>" alt="Foto de Perfil" class="img-fluid" style="max-width: 200px; max-height: 200px;">
+            <img src="mostrar_imagen_perfil.php?id=<?php echo $user['ID_usuario']; ?>" alt="Foto de Perfil" class="img-fluid perfil-img" style="max-width: 200px; max-height: 175px;">
             <div class="col-md-6">
                 <h2>Información Personal</h2>
                 <p><strong>Nombre:</strong> <?php echo htmlspecialchars($user['Nombre']); ?></p>
@@ -62,25 +62,26 @@
     </main>
 
     <footer class="d-block d-md-none" style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.2rem 0;">
-        <div class="hstack gap-3">
-            <div class="p-1">
-                <button class="btn btn-primary" type="button" aria-label="Perfil" onclick="window.location.href='../usuario/perfil.php'">
-                <img src="funciones/usuario/mostrar_imagen_perfil.php?id=<?php echo $user['ID_usuario']; ?>" alt="Foto de Perfil" class="img-fluid" style="max-width: 200px; max-height: 200px;">
-                </button>
-            </div>
-            <div class="p-1 ms-auto" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
-                <?php if (isset($_SESSION['usuario'])): ?>
-                    <?php if ($_SESSION['tipo_usuario'] == 'participante'): ?>
-                    <button class="btn btn-primary" type="button" aria-label="Buscar" onclick="window.location.href='../../funciones/eventos/eventos.php'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                        </svg>
-                    </button>
-                    <?php endif; ?>
-                <?php endif; ?>
-            </div>
+    <div class="hstack gap-3">
+        <div class="p-1">
+            <button class="btn btn-primary" type="button" aria-label="Perfil" onclick="window.location.href='../usuario/perfil.php'">
+                <img src="funciones/usuario/mostrar_imagen_perfil.php?id=<?php echo $user['ID_usuario']; ?>" alt="Foto de Perfil" class="img-fluid perfil-img" style="max-width: 50px; max-height: 25px;"  />
+            </button>
         </div>
-    </footer>
+        <div class="p-1 ms-auto" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
+            <?php if (isset($_SESSION['usuario'])): ?>
+                <?php if ($_SESSION['tipo_usuario'] == 'participante'): ?>
+                <button class="btn btn-primary" type="button" aria-label="Buscar" onclick="window.location.href='../../funciones/eventos/eventos.php'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                </button>
+                <?php endif; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+</footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
