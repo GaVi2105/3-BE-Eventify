@@ -41,13 +41,11 @@
 
     <main class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-6 register-container">
-                <h1 class="mb-4" style="text-align: center;">Registro de Usuario</h1>
+            <div style="margin-top: 20px;" class="col-md-6 register-container">
+                <h1 style="text-align: center;">Registro de Usuario</h1>
                 <?php if (isset($error) && $error != ''): ?>
                     <div class="alert alert-danger" role="alert"><?php echo htmlspecialchars($error); ?></div>
                 <?php endif; ?>
-
-                <!-- Agregar enctype para permitir la carga de archivos -->
                 <form action="register.php" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre completo:</label>
@@ -77,8 +75,6 @@
                         <label for="confirmar_contrasenia" class="form-label">Confirmar Contraseña:</label>
                         <input type="password" class="form-control" id="confirmar_contrasenia" name="confirmar_contrasenia" required>
                     </div>
-
-                    <!-- Campo para el tipo de usuario -->
                     <div class="mb-3">
                         <label for="tipo_usuario" class="form-label">Tipo de usuario:</label>
                         <select class="form-select" id="tipo_usuario" name="tipo_usuario" required>
@@ -86,8 +82,6 @@
                             <option value="organizador">Organizador</option>
                         </select>
                     </div>
-
-                    <!-- Nuevo campo para seleccionar género -->
                     <div class="mb-3">
                         <label for="genero" class="form-label">Género:</label>
                         <select class="form-select" id="genero" name="genero" required>
@@ -96,8 +90,6 @@
                             <option value="otro">Otro</option>
                         </select>
                     </div>
-
-                    <!-- Nuevo campo para subir imagen de perfil -->
                     <div class="mb-3">
                         <label for="imagen_perfil" class="form-label">Subir imagen de perfil:</label>
                         <input type="file" class="form-control" id="imagen_perfil" name="imagen_perfil" accept="image/*">

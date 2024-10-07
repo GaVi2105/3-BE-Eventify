@@ -10,10 +10,10 @@
 </head>
 
 <body>
-    <nav  class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container-fluid">
-        <a href="index.php" width="50" height="50">
-               <img src="icono/Logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
+            <a href="index.php" width="50" height="50">
+                <img src="icono/Logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
             </a>
             <a class="navbar-brand" href="index.php">Eventify</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,17 +44,17 @@
     <main class="mt-5">
         <div style="padding-top: 2%;" class="container">
             <h2 class="mb-4 mt-4">Eventos Recientes</h2>
-                <div class="event-carousel">
-                    <?php if (!empty($eventos_recientes) && $eventos_recientes->num_rows > 0): ?>
-                        <?php foreach ($eventos_recientes as $evento): ?>
-                            <div class="event-item">
-                                <img src="funciones/eventos/mostrar_imagen.php?id=<?php echo $evento['ID_evento']; ?>" class="card-img-top" alt="Imagen del evento" style="height: 100px; width: 100px; object-fit: cover;">
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <p>No hay eventos recientes disponibles.</p>
-                    <?php endif; ?>
-                </div>
+            <div class="event-carousel">
+                <?php if (!empty($eventos_recientes) && $eventos_recientes->num_rows > 0): ?>
+                    <?php foreach ($eventos_recientes as $evento): ?>
+                        <div class="event-item">
+                            <img src="funciones/eventos/mostrar_imagen.php?id=<?php echo $evento['ID_evento']; ?>" class="card-img-top" alt="Imagen del evento" style="height: 100px; width: 100px; object-fit: cover;">
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>No hay eventos recientes disponibles.</p>
+                <?php endif; ?>
+            </div>
 
             <h2 class="mt-4 mb-4">Eventos Destacados</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -113,41 +113,44 @@
         <br>
     </main>
 
-    <footer class="d-block d-md-none" style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.2rem 0;"> 
-    <div class="hstack gap-3"> <!-- Alineación en fila, solo en pantallas pequeñas -->
-        <div class="p-1">
-        <?php if (isset($_SESSION['usuario'])): ?>
-            <?php if ($_SESSION['tipo_usuario'] == 'participante' || $_SESSION['tipo_usuario'] == 'organizador'): ?>
-            <button class="btn btn-primary" type="button" aria-label="Perfil" onclick="window.location.href='funciones/usuario/perfil.php'">
-            <img src="funciones/usuario/mostrar_imagen_perfil.php?id=<?php echo $user['ID_usuario']; ?>" alt="Foto de Perfil" class="img-fluid" style="max-width: 200px; max-height: 200px;">
-            </button>
-            <?php endif; ?>
-            <?php endif; ?>
-        </div>
-        <div class="p-1 ms-auto" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
-        <?php if (isset($_SESSION['usuario'])): ?>
-            <?php if ($_SESSION['tipo_usuario'] == 'participante'): ?>
-            <button class="btn btn-primary" type="button" aria-label="Buscar" onclick="window.location.href='funciones/eventos/eventos.php'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                </svg>
-            </button>
-            <?php endif; ?>
-            <?php endif; ?>
-        </div>
-        <div class="p-1" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
+    <footer class="d-block d-md-none" style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.2rem 0;">
+        <div class="hstack gap-3">
+            <div class="p-1">
                 <?php if (isset($_SESSION['usuario'])): ?>
-                <?php if ($_SESSION['tipo_usuario'] == 'organizador'): ?>
-            <button class="btn btn-primary" type="button" aria-label="Agregar Evento" onclick="window.location.href='funciones/eventos/crear_evento.php'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
-            </button>
+                    <?php if ($_SESSION['tipo_usuario'] == 'participante' || $_SESSION['tipo_usuario'] == 'organizador'): ?>
+                        <button class="btn btn-primary" type="button" aria-label="Perfil" onclick="window.location.href='funciones/usuario/perfil.php'">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                            </svg>
+                        </button>
+                    <?php endif; ?>
                 <?php endif; ?>
+            </div>
+            <div class="p-1 ms-auto" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
+                <?php if (isset($_SESSION['usuario'])): ?>
+                    <?php if ($_SESSION['tipo_usuario'] == 'participante'): ?>
+                        <button class="btn btn-primary" type="button" aria-label="Buscar" onclick="window.location.href='funciones/eventos/eventos.php'">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                            </svg>
+                        </button>
+                    <?php endif; ?>
                 <?php endif; ?>
+            </div>
+            <div class="p-1" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
+                <?php if (isset($_SESSION['usuario'])): ?>
+                    <?php if ($_SESSION['tipo_usuario'] == 'organizador'): ?>
+                        <button class="btn btn-primary" type="button" aria-label="Agregar Evento" onclick="window.location.href='funciones/eventos/crear_evento.php'">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+                            </svg>
+                        </button>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
 
 
