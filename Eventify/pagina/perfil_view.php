@@ -59,7 +59,7 @@
             <a href="editar_perfil.php" class="btn btn-primary mt-3">Modificar Perfil</a>
             <main class="container mt-3">
                 <h1 lass="mb-3">Mis Eventos</h1>
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <div style="border-radius: 100px;" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                     <?php if (!empty($eventos)): ?>
                         <?php foreach ($eventos as $evento): ?>
                             <div class="evento">

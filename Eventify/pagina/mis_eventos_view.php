@@ -41,7 +41,7 @@
         </div>
     </nav>
 
-    <main style="padding-top: 20%;" class="container mt-4">
+    <main style="padding-top: 5%;" class="container mt-4">
         <h2 class="mb-4">
             <?php echo ($tipo_usuario == 'organizador') ? 'Mis Eventos Creados' : 'Eventos en los que Participo'; ?>
         </h2>

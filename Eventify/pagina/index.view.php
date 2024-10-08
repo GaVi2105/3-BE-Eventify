@@ -98,7 +98,7 @@
                 <div class="col-md-4">
                     <blockquote class="blockquote">
                         <p class="mb-4"><img src="imagenes/Logotipo DGETP.png" alt="Logo del Instituto"></p>
-                        <cite title="Source Title">Instituto Tecnologico Superior Paysandú</cite>
+                        <cite title="Source Title">Instituto Tecnologico Superior</cite>
                     </blockquote>
                 </div>
                 <div class="col-md-4">
