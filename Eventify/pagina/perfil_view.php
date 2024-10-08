@@ -40,7 +40,6 @@
             </div>
         </div>
     </nav>
-
     <main class="container mt-3">
         <div class="row fondo-container ">
             <h1 class="mb-3">Mi Perfil</h1>
@@ -49,21 +48,40 @@
                 <h2>Información Personal</h2>
                 <p><strong>Nombre:</strong> <?php echo htmlspecialchars($user['Nombre']); ?></p>
                 <p><strong>Edad:</strong> <?php echo htmlspecialchars($user['Edad']); ?></p>
-                <p><strong>Teléfono:</strong> <?php echo htmlspecialchars($user['Numero_telefono']); ?></p>
-                <p><strong>Correo:</strong> <?php echo htmlspecialchars($user['Correo_electronico']); ?></p>
                 <p><strong>CI:</strong> <?php echo htmlspecialchars($user['CI']); ?></p>
                 <p><strong>Genero:</strong> <?php echo htmlspecialchars($user['Genero']); ?></p>
-                <p><strong>Tipo de Usuario:</strong> <?php echo htmlspecialchars($user['Tipo_usuario']); ?></p>
-                <a href="editar_perfil.php" class="btn btn-primary mt-3">Modificar Perfil</a>
             </div>
+            <div class="col-md-3">
+                <p><strong>Teléfono:</strong> <?php echo htmlspecialchars($user['Numero_telefono']); ?></p>
+                <p><strong>Correo:</strong> <?php echo htmlspecialchars($user['Correo_electronico']); ?></p>
+                <p><strong>Tipo de Usuario:</strong> <?php echo htmlspecialchars($user['Tipo_usuario']); ?></p>
+            </div>
+            <a href="editar_perfil.php" class="btn btn-primary mt-3">Modificar Perfil</a>
+            <main class="container mt-3">
+                <h1 lass="mb-3">Mis Eventos</h1>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <?php if (!empty($eventos)): ?>
+                        <?php foreach ($eventos as $evento): ?>
+                            <div class="evento">
+                                <img src="../eventos/mostrar_imagen.php?id=<?php echo $evento['ID_evento']; ?>" class="card-img-top"
+                                    alt="Imagen del evento" style="height: 200px; object-fit: cover;">
+                                <h4><?= htmlspecialchars($evento['Nombre']); ?></h4>
+                                <p><strong>Fecha:</strong> <?= htmlspecialchars($evento['Fecha']); ?></p>
+                                <p><strong>Ubicación:</strong> <?= htmlspecialchars($evento['Ubicacion']); ?></p>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <p>No tienes eventos registrados.</p>
+                    <?php endif; ?>
+                </div>
         </div>
     </main>
-
+    </main>
     <footer class="d-block d-md-none" style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.2rem 0;">
         <div class="hstack gap-5">
             <div class="p-1">
                 <button class="btn btn-primary" type="button" aria-label="Perfil" onclick="window.location.href='../usuario/perfil.php'">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                     </svg>
@@ -73,8 +91,8 @@
                 <?php if (isset($_SESSION['usuario'])): ?>
                     <?php if ($_SESSION['tipo_usuario'] == 'participante'): ?>
                         <button class="btn btn-primary" type="button" aria-label="Buscar" onclick="window.location.href='../../funciones/eventos/eventos.php'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-event" viewBox="0 0 16 16">
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h9V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H1a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 3v11h14V3H1zm8 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
                             </svg>
                         </button>
                     <?php endif; ?>
@@ -82,8 +100,6 @@
             </div>
         </div>
     </footer>
-
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="menu.js"></script>

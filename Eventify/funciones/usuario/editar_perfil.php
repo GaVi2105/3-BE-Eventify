@@ -96,6 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error = "Error al eliminar registros relacionados: " . $conn->error;
         }
     }
+    
 }
 
 // Obtener la información del usuario para mostrar en la vista
