@@ -440,7 +440,7 @@ input[type="password"]:focus {
 
 .fondo-container {
     background-color: rgba(255, 255, 255, 0.774);
-    border-radius: 50%;
+    border-radius: 20px;
     padding: 50px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
     width: 90%;
@@ -475,13 +475,23 @@ input[type="password"]:focus {
     }
 }
 
+.row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1* var(--bs-gutter-y));
+    margin-right: calc(-.5* var(--bs-gutter-x));
+    margin-left: calc(-.5* var(--bs-gutter-x));
+}
+
 .perfil-img {
     width: 250px;
     height: 250px;
-    object-fit: cover;
+    object-fit: none;
     border-radius: 50%;
     border: 1px solid #fff;
-    box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .blockquote img {
@@ -496,13 +506,6 @@ input[type="password"]:focus {
         max-height: 200px;
         top: 45%;
         left: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .row {
-        width: auto;
-        height: auto;
     }
 }
 

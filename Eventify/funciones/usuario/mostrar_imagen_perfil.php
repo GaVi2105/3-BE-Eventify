@@ -15,9 +15,8 @@ if (isset($_GET['id'])) {
         header("Content-Type: image/jpeg");
         echo $imagen_perfil;
     } else {
-        // Mostrar una imagen por defecto
         header("Content-Type: image/png");
-        readfile('../imagenes/imagen_generica.png');
+        readfile('../../imagenes/imagen_generica.png');
     }
 }
 ?>

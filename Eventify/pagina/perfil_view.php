@@ -43,7 +43,7 @@
     <main class="container mt-3">
         <div class="row fondo-container ">
             <h1 class="mb-3">Mi Perfil</h1>
-            <img src="mostrar_imagen_perfil.php?id=<?php echo $user['ID_usuario']; ?>" alt="Foto de Perfil" class="img-fluid perfil-img" style="max-width: 150px; max-height: 150px;">
+            <img src="mostrar_imagen_perfil.php?id=<?php echo $user['ID_usuario']; ?>" alt="Foto de Perfil" class="img-fluid perfil-img" style="max-width: 200px; max-height: 200px;">
             <div class="col-md-3">
                 <h2>Información Personal</h2>
                 <p><strong>Nombre:</strong> <?php echo htmlspecialchars($user['Nombre']); ?></p>
