@@ -42,7 +42,7 @@
     </nav>
 
     <main class="mt-5">
-        <div style="padding-top: 2%;" class="container">
+        <div class="container">
             <h2 class="mb-4 mt-4">Eventos Recientes</h2>
             <div class="event-carousel">
                 <?php if (!empty($eventos_recientes) && $eventos_recientes->num_rows > 0): ?>

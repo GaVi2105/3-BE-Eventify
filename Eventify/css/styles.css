@@ -445,29 +445,22 @@ input[type="password"]:focus {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
     width: 90%;
     max-width: auto;
-    height: 80%;
+    height: 85%;
     max-height: 100%;
     position: fixed;
     top: 55%;
-    left: 52%;
+    left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
     overflow-y: auto;
 }
 
-.col-md-3 {
-    flex: auto;
-}
-.col-md-3 p {
-    font-size: 1rem;
-    padding: 1px;
-}
 
 @media (max-width: 768px) {
     .fondo-container {
         width: 80%;
-        top: 51%;
-        left: 53.5%;
+        top: 52%;
+        left: 50%;
         max-width: 90%;
         padding: 20px;
         border-radius: 20px;
@@ -483,6 +476,7 @@ input[type="password"]:focus {
     margin-top: calc(-1* var(--bs-gutter-y));
     margin-right: calc(-.5* var(--bs-gutter-x));
     margin-left: calc(-.5* var(--bs-gutter-x));
+    justify-content: space-between;
 }
 
 .perfil-img {
@@ -515,3 +509,28 @@ input[type="password"]:focus {
         max-height: 200px;
     }
 }
+
+.position-relative {
+    position: relative;
+}
+
+.event-finalizado {
+    position: absolute; /* Posiciona el mensaje sobre la imagen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Asegúrate de que esté encima de la imagen */
+}
+
+.mensaje-finalizado {
+    font-size: 1.5em; /* Tamaño de fuente del mensaje */
+    color: rgb(255, 101, 101); /* Color del texto */
+    text-decoration: line-through; /* Tachar el texto */
+    font-weight: bold; /* Negrita */
+}
+

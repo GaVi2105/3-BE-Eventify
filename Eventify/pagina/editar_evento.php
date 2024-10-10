@@ -7,6 +7,7 @@
     <title>Editar Evento - Eventify</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 
 <body>
@@ -14,7 +15,7 @@
         <div class="container-fluid">
             <a href="../../index.php" width="50" height="50">
                 <img src="../../icono/Logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
-            </a> <a class="navbar-brand" href="../../index.php">Eventify</a>
+            </a> <a class="navbar-brand" href="../../index.php">Editar Evento</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
@@ -44,7 +45,6 @@
     <main style="padding-top: 2%;" class="container mt-4">
         <br>
         <br>
-        <h2 class="mb-4">Editar Evento</h2>
         <?php if (isset($mensaje)): ?>
             <div class="alert alert-success"><?= $mensaje; ?></div>
         <?php endif; ?>
@@ -76,6 +76,8 @@
                 <input type="text" class="form-control" id="ubicacion" name="ubicacion"
                     value="<?= htmlspecialchars($evento['Ubicacion']); ?>" required>
             </div>
+
+            <div id="map" style="height: 400px; width: 100%;"></div>
 
             <div class="mb-3">
                 <label for="costo" class="form-label">Costo:</label>
@@ -145,7 +147,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="menu.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="../../menu.js"></script>
 </body>
 
 </html>

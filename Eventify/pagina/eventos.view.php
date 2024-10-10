@@ -14,7 +14,8 @@
         <div class="container-fluid">
             <a href="../../index.php" width="50" height="50">
                 <img src="../../icono/Logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
-            </a> <a class="navbar-brand" href="../../index.php">Eventify</a>
+            </a>
+            <a class="navbar-brand" href="../../index.php">Eventos</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
@@ -40,8 +41,14 @@
             </div>
         </div>
     </nav>
+
     <main class="container mt-4">
-        <h2 style="margin-top: 50px;" class="mb-4">Lista de Eventos</h2>
+        <br>
+        <!-- Mensaje de evento finalizado -->
+        <div id="mensajeFinalizado" class="alert alert-warning" style="display:none;">
+            Este evento ha finalizado.
+        </div>
+
         <form action="eventos.php" method="get" class="mb-4">
             <div class="row g-3 align-items-center">
                 <div class="col-auto">
@@ -77,6 +84,18 @@
                                 <strong>Costo de entrada:</strong>
                                 $<?php echo htmlspecialchars($evento['Costo_entrada']); ?>
                             </p>
+
+                            <?php
+                            // Verificar si el evento ha finalizado
+                            $fechaEvento = new DateTime($evento['Fecha']);
+                            $fechaActual = new DateTime();
+
+                            if ($fechaActual >= $fechaEvento): ?>
+                                <div style="background-color: rgb(255, 101, 101); color: whitesmoke; font-weight: bold;" class="alert alert-warning">
+                                    Este evento ha finalizado.
+                                </div>
+                            <?php endif; ?>
+
                             <?php if (isset($_SESSION['usuario']) && $_SESSION['tipo_usuario'] == 'participante'): ?>
                                 <form action="participar_evento.php" method="POST">
                                     <input type="hidden" name="id_evento" value="<?php echo $evento['ID_evento']; ?>">
