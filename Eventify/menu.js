@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var navbarToggler = document.querySelector('.navbar-toggler');
     var navbarCollapse = document.querySelector('.navbar-collapse');
 
-    // Alterna el estado de 'show' cuando se hace clic en el botón del menú (hamburguesa)
+    // Alterna el estado de 'show' cuando se hace clic en el botón del menú 
     navbarToggler.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevenir el comportamiento por defecto
+        event.preventDefault(); 
         navbarCollapse.classList.toggle('show'); // Alterna el menú
     });
 
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('click', function (event) {
         var isClickInsideNavbar = navbarCollapse.contains(event.target) || navbarToggler.contains(event.target);
         if (!isClickInsideNavbar && navbarCollapse.classList.contains('show')) {
-            navbarCollapse.classList.remove('show'); // Cierra el menú si el clic es fuera del menú
+            navbarCollapse.classList.remove('show'); 
         }
     });
 
@@ -38,12 +38,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Iniciar la verificación cada minuto
     setInterval(function () {
         // Reemplazar con la fecha del evento obtenida desde PHP
-        var fechaEvento = "<?php echo $fecha_evento; ?>"; // Asegúrate de tener esta variable disponible en tu script
+        var fechaEvento = "<?php echo $fecha_evento; ?>"; 
         verificarEventoFinalizado(fechaEvento);
     }, 60000); // Verifica cada minuto
 
     // Comprobar al cargar la página
-    var fechaEvento = "<?php echo $fecha_evento; ?>"; // Asegúrate de tener esta variable disponible en tu script
+    var fechaEvento = "<?php echo $fecha_evento; ?>"; 
     verificarEventoFinalizado(fechaEvento);
 });
 
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // Inicializar el mapa
-    var map = L.map('map').setView([-34.9011, -56.1645], 13); // Coordenadas iniciales
+    var map = L.map('map').setView([-32.3214, -58.0756], 14); // Coordenadas iniciales
 
     // Capa de OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -77,12 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Evento de clic en el mapa
     map.on('click', function(e) {
-        // Si hay un marcador existente, lo elimina
         if (marker) {
             map.removeLayer(marker);
         }
-        
-        // Crea un nuevo marcador en la ubicación seleccionada
         marker = L.marker(e.latlng).addTo(map);
         
         // Guarda las coordenadas en el campo oculto
