@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - Eventify</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
@@ -62,10 +63,23 @@
                         <input type="email" class="form-control" id="correo" name="correo" required>
                     </div>
                     <div class="mb-3">
-                        <label for="contrasenia" class="form-label">Contraseña:</label>
-                        <input type="password" class="form-control" id="contrasenia" name="contrasenia" required>
-                    </div>
+    <label for="contrasenia" class="form-label">Contraseña:</label>
+    <div class="input-group">
+        <!-- Campo de contraseña -->
+        <input type="password" class="form-control" id="contrasenia" name="contrasenia" required>
+        
+        <!-- Ícono de ojo para mostrar/ocultar la contraseña -->
+        <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+            <i class="bi bi-eye-slash" id="eyeIcon"></i>
+        </span>
+    </div>
+</div>
+
+
                     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    <div class="mt-3">
+                        <a href="../../pagina/recuperar_contrasenia.view.php" class="btn btn-link">¿Olvidaste tu contraseña?</a>
+                    </div>
                 </form>
             </div>
         </div>
@@ -120,6 +134,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="../../../menu.js"></script>
 </body>
 
 </html>

@@ -100,5 +100,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtiene los datos del formulario
+    $nombre = mysqli_real_escape_string($conn, $_POST['nombre']);
+    $correo = mysqli_real_escape_string($conn, $_POST['correo']);
+    $ci = mysqli_real_escape_string($conn, $_POST['ci']);
+    $telefono = mysqli_real_escape_string($conn, $_POST['telefono']);
+
+    // Validaciones adicionales
+    if (!preg_match("/^[a-zA-Z\s]+$/", $nombre)) {
+        $error = "El nombre solo puede contener letras y espacios.";
+    } elseif (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+        $error = "El correo electrónico no es válido.";
+    } elseif (!preg_match("/^\d{7,8}$/", $ci)) {
+        $error = "La cédula debe contener entre 7 y 8 dígitos.";
+    } elseif (!preg_match("/^\d{9,15}$/", $telefono)) {
+        $error = "El número de teléfono debe contener entre 9 y 15 dígitos.";
+    } else {
+        // Continuar con el registro si no hay errores
+        // Aquí iría el código para insertar los datos en la base de datos.
+    }
+}
+
 include '../../pagina/register.view.php';
 ?>

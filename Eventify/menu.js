@@ -105,4 +105,24 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(error => console.error('Error al obtener la dirección:', error));
     }
 
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtener el ícono y el campo de contraseña
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordField = document.getElementById('contrasenia');
+        const eyeIcon = document.getElementById('eyeIcon');
+    
+        // Agregar el evento click al ícono
+        togglePassword.addEventListener('click', function () {
+            // Cambiar el tipo del campo de contraseña entre 'password' y 'text'
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+            
+            // Alternar entre los íconos de ojo abierto y cerrado
+            eyeIcon.classList.toggle('bi-eye');         // Ojo abierto
+            eyeIcon.classList.toggle('bi-eye-slash');   // Ojo cerrado
+        });
+    });
+    
+    
+    
 

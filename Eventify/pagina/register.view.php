@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - Eventify</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
@@ -56,28 +57,38 @@
                 <form action="register.php" method="POST" class="needs-validation" enctype="multipart/form-data"
                     novalidate>
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre completo:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" pattern="[a-zA-Z\s]+" required>
+                        <div class="invalid-feedback">El nombre solo debe contener letras y espacios.</div>
                     </div>
                     <div class="mb-3">
-                        <label for="ci" class="form-label">CI (Cédula de Identidad):</label>
-                        <input type="text" class="form-control" id="ci" name="ci" required>
+                        <label for="ci" class="form-label">Cédula:</label>
+                        <input type="text" class="form-control" id="ci" name="ci" pattern="\d{7,8}" required>
+                        <div class="invalid-feedback">La cédula debe contener entre 7 y 8 dígitos.</div>
                     </div>
                     <div class="mb-3">
                         <label for="edad" class="form-label">Edad:</label>
                         <input type="number" class="form-control" id="edad" name="edad" required>
                     </div>
                     <div class="mb-3">
-                        <label for="telefono" class="form-label">Número de teléfono:</label>
-                        <input type="tel" class="form-control" id="telefono" name="telefono" required>
+                        <label for="telefono" class="form-label">Teléfono:</label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" pattern="\d{9,15}" required>
+                        <div class="invalid-feedback">El número de teléfono debe contener entre 9 y 15 dígitos.</div>
                     </div>
                     <div class="mb-3">
-                        <label for="correo" class="form-label">Correo electrónico:</label>
+                        <label for="correo" class="form-label">Correo Electrónico:</label>
                         <input type="email" class="form-control" id="correo" name="correo" required>
+                        <div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
                     </div>
                     <div class="mb-3">
                         <label for="contrasenia" class="form-label">Contraseña:</label>
-                        <input type="password" class="form-control" id="contrasenia" name="contrasenia" required>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="contrasenia" name="contrasenia" required>
+                            <!-- Ícono del ojo que cambiará cuando se haga clic -->
+                            <span class="input-group-text" id="togglePassword">
+                                <i class="bi bi-eye-slash" id="eyeIcon"></i>
+                            </span>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="confirmar_contrasenia" class="form-label">Confirmar Contraseña:</label>
@@ -134,7 +145,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="../menu.js"></script>
+    <script src="../../menu.js"></script>
 </body>
 
 </html>
