@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var navbarToggler = document.querySelector('.navbar-toggler');
     var navbarCollapse = document.querySelector('.navbar-collapse');
 
-    // Alterna el estado de 'show' cuando se hace clic en el botón del menú 
+/*     // Alterna el estado de 'show' cuando se hace clic en el botón del menú 
     navbarToggler.addEventListener('click', function (event) {
         event.preventDefault(); 
         navbarCollapse.classList.toggle('show'); // Alterna el menú
-    });
+    }); */
 
     // Cierra el menú cuando se hace clic en un enlace de navegación
     var navLinks = document.querySelectorAll('.navbar-nav .nav-link');
