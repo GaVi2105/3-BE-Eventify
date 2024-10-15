@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=main-width, initial-scale=1.0">
     <title>Eventify</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
@@ -47,11 +47,49 @@
             </div>
         </div>
     </nav>
-
 </header>
 
 <body>
-
+    <main>
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img style="height: 400px;" src="imagenes/baner azul.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <img class="banner-img" src="imagenes/SemanaCerveza.jpg" alt="">
+                        <h1 style="color: #fff;" class="navbar-brand">Semana de la Cerveza</h1>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img style="height: 400px;" src="imagenes/baner azul.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <img class="banner-img" src="imagenes/DiaLibro.jpg" alt="">
+                        <h1 style="color: #fff;" class="navbar-brand">Dia del Libro</h1>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img style="height: 400px;" src="imagenes/baner azul.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <img class="banner-img" src="imagenes/GolfNavidad.jpeg" alt="">
+                        <h1 style="color: #fff;" class="navbar-brand">Navidad en Golf</h1>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </main>
     <main class="mt-5">
         <div class="container">
             <h2 class="mb-4 mt-4">Eventos Recientes</h2>
@@ -68,7 +106,6 @@
                     <p>No hay eventos recientes disponibles.</p>
                 <?php endif; ?>
             </div>
-
             <h2 class="mt-4 mb-4">Eventos Destacados</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 <?php while ($evento = $eventos_destacados->fetch_assoc()): ?>
@@ -98,37 +135,55 @@
             <p>A continuación, te presentamos una selección de próximos eventos que no te puedes perder:</p>
             <ul class="list-group mb-4">
                 <li class="list-group-item">Concierto de Jazz - <strong>Fecha:</strong> 15 de octubre de 2024 -
-                    <strong>Ubicación:</strong> Centro Cultural</li>
+                    <strong>Ubicación:</strong> Centro Cultural
+                </li>
                 <li class="list-group-item">Taller de Fotografía - <strong>Fecha:</strong> 22 de octubre de 2024 -
-                    <strong>Ubicación:</strong> Estudio Creativo</li>
+                    <strong>Ubicación:</strong> Estudio Creativo
+                </li>
                 <li class="list-group-item">Feria de Tecnología - <strong>Fecha:</strong> 5 de noviembre de 2024 -
-                    <strong>Ubicación:</strong> Parque de la Innovación</li>
+                    <strong>Ubicación:</strong> Parque de la Innovación
+                </li>
             </ul>
-
-            <h2 class="mt-4 mb-4">EVENTIFY</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <blockquote class="blockquote">
-                        <p class="mb-4"><img src="imagenes/LogoEmpresa.png" alt="Logo de la Empresa"></p>
-                        <cite title="Source Title">Administradores, Creadores</cite>
-                    </blockquote>
+    </main>
+    <main>
+        <div id="carouselExampleDark" class="carousel carousel-dark slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img style="height: 200px;" src="imagenes/ElCangue.jpeg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <blockquote class="blockquote">
-                        <p class="mb-4"><img src="imagenes/Logotipo DGETP.png" alt="Logo del Instituto"></p>
-                        <cite title="Source Title">Instituto Tecnologico Superior</cite>
-                    </blockquote>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img style="height: 200px;" src="imagenes/meseta.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <blockquote class="blockquote">
-                        <p class="mb-4"><img src="imagenes/paysandu.png" alt="Logo de paysandu"></p>
-                        <cite title="Source Title">Paysandú</cite>
-                    </blockquote>
+                <div class="carousel-item">
+                    <img style="height: 200px;" src="imagenes/Concierto.webp" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
                 </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <br>
-        <br>
     </main>
 
     <footer class="d-block d-md-none"
@@ -182,7 +237,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="../../menu.js"></script>
+    <script src="menu.js"></script>
 </body>
 
 </html>

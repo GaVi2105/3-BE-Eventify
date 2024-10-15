@@ -58,7 +58,7 @@
                     <p><strong>CI:</strong> <?php echo htmlspecialchars($user['CI']); ?></p>
                     <p><strong>Genero:</strong> <?php echo htmlspecialchars($user['Genero']); ?></p>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" style="padding-top: 20px">
                     <p><strong>Teléfono:</strong> <?php echo htmlspecialchars($user['Numero_telefono']); ?></p>
                     <p><strong>Correo:</strong> <?php echo htmlspecialchars($user['Correo_electronico']); ?></p>
                     <p><strong>Tipo de Usuario:</strong> <?php echo htmlspecialchars($user['Tipo_usuario']); ?></p>

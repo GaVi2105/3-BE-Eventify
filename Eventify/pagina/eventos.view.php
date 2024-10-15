@@ -54,14 +54,12 @@
 
 <body>
 
-    <main class="container mt-4">
-        <br>
-        <!-- Mensaje de evento finalizado -->
+    
+    <main>
         <div id="mensajeFinalizado" class="alert alert-warning" style="display:none;">
             Este evento ha finalizado.
         </div>
-
-        <form action="eventos.php" method="get" class="mb-4">
+        <form action="eventos.php" method="get" style="padding-left: 70%;" class="mb-4">
             <div class="row g-3 align-items-center">
                 <div class="col-auto">
                     <select name="categoria" id="categoria" class="form-select">
@@ -78,7 +76,8 @@
                 </div>
             </div>
         </form>
-
+        </main>
+    <main style="margin-top: 100px;" class="container mt-4">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <?php while ($evento = $eventos->fetch_assoc()): ?>
                 <div class="col">
@@ -185,7 +184,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="../../menu.js"></script>
+    <script src="../menu.js"></script>
 </body>
 
 </html>

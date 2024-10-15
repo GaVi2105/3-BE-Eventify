@@ -24,13 +24,22 @@ main {
     flex: 1;
     padding-top: 80px;
     padding: 2rem;
-    max-width: 1200px;
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
+    
+}
+
+main img  {
+    object-fit: cover;
+}
+
+.mt-5 {
+    margin-top: 0 !important;
 }
 
 .navbar {
+    background-image: linear-gradient(to right bottom, #0546a8, #005cbb, #0073cd, #0089de, #009fed, #009fed, #009fed, #009fed, #0089de, #0073cd, #005cbb, #0546a8);
     padding: 0.75rem 1rem;
     position: fixed;
     top: 0;
@@ -40,6 +49,48 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease-in-out;
 }
+
+.carousel-control-next, .carousel-control-prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5%;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    height: 100%;
+}
+
+.banner-img {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+}
+
+
 
 .navbar.scrolled {
     background-color: rgba(0, 123, 255, 0.9);
@@ -203,8 +254,8 @@ footer .btn-icon svg {
 
 @media (max-width: 768px) {
     main {
-        padding-top: 100px; 
-        padding: 1rem;
+        padding-top: 70px; 
+        padding: 0;
     }
 
     /* Ajustes al form */
@@ -494,8 +545,6 @@ input[type="password"]:focus {
 
 @media (max-width: 768px) {
     .fondo-container {
-        justify-content: center;
-        align-items: center;
         width: 80%;
         top: 52%;
         left: 50%;
@@ -571,3 +620,16 @@ input[type="password"]:focus {
     font-weight: bold; 
 }
 
+@media only screen and (max-width: 799px) {
+    .eventInfoMain {
+        width: 100%;
+        margin: 2vh 0;
+        row-gap: 5vw;
+        flex-direction: column-reverse;
+    }
+}
+
+.event-card {
+    max-width: 300px; /* Ajusta el tamaño máximo de la tarjeta */
+    margin: auto; /* Centra la tarjeta en la página */
+}

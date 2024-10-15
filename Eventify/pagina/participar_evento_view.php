@@ -51,37 +51,31 @@
 
     <main class="container mt-4">
         <br>
-        <?php if (isset($mensaje)): ?>
-            <div class="alert alert-<?php echo $tipo_mensaje; ?>"><?php echo htmlspecialchars($mensaje); ?></div>
-        <?php endif; ?>
-        <?php if (isset($evento) && !empty($evento)): ?>
-            <div class="card">
-                <div class="card-body">
-                    <img src="mostrar_imagen.php?id=<?php echo $evento['ID_evento']; ?>" class="card-img-top"
-                        alt="Imagen del evento" style="height: auto; object-fit: cover;">
-                    <h5 class="card-title"><?php echo htmlspecialchars($evento['Nombre'] ?? 'Nombre no disponible'); ?></h5>
-                    <h6 class="card-subtitle mb-2 text-muted">
-                        <?php echo htmlspecialchars($evento['Nombre_categoria'] ?? 'Categoría no disponible'); ?>
-                    </h6>
-                    <p class="card-text">
-                        <strong>Descripción:</strong>
-                        <?php echo htmlspecialchars($evento['Descripcion'] ?? 'Descripción no disponible'); ?><br>
-                        <strong>Fecha:</strong>
-                        <?php echo htmlspecialchars($evento['Fecha'] ?? 'Fecha no disponible'); ?><br>
-                        <strong>Ubicación:</strong>
-                        <?php echo htmlspecialchars($evento['Ubicacion'] ?? 'Ubicación no disponible'); ?><br>
-                        <strong>Costo de entrada:</strong>
-                        $<?php echo htmlspecialchars($evento['Costo_entrada'] ?? 'Costo no disponible'); ?>
-                    </p>
-                    <form action="participar_evento.php" method="POST">
-                        <input type="hidden" name="id_evento" value="<?php echo $evento['ID_evento']; ?>">
-                        <button type="submit" class="btn btn-primary">Confirmar Participación</button>
-                    </form>
-                </div>
-            </div>
-        <?php else: ?>
-            <div class="alert alert-warning">No se encontró información del evento.</div>
-        <?php endif; ?>
+        <div class="card event-card">
+    <div class="card-body">
+        <img src="mostrar_imagen.php?id=<?php echo $evento['ID_evento']; ?>" class="card-img-top"
+            alt="Imagen del evento" style="height: auto; object-fit: cover;">
+        <h5 class="card-title"><?php echo htmlspecialchars($evento['Nombre'] ?? 'Nombre no disponible'); ?></h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+            <?php echo htmlspecialchars($evento['Nombre_categoria'] ?? 'Categoría no disponible'); ?>
+        </h6>
+        <p class="card-text">
+            <strong>Descripción:</strong>
+            <?php echo htmlspecialchars($evento['Descripcion'] ?? 'Descripción no disponible'); ?><br>
+            <strong>Fecha:</strong>
+            <?php echo htmlspecialchars($evento['Fecha'] ?? 'Fecha no disponible'); ?><br>
+            <strong>Ubicación:</strong>
+            <?php echo htmlspecialchars($evento['Ubicacion'] ?? 'Ubicación no disponible'); ?><br>
+            <strong>Costo de entrada:</strong>
+            $<?php echo htmlspecialchars($evento['Costo_entrada'] ?? 'Costo no disponible'); ?>
+        </p>
+        <form action="participar_evento.php" method="POST">
+            <input type="hidden" name="id_evento" value="<?php echo $evento['ID_evento']; ?>">
+            <button type="submit" class="btn btn-primary">Confirmar Participación</button>
+        </form>
+    </div>
+</div>
+
     </main>
 
     <footer class="d-block d-md-none"
@@ -133,7 +127,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="../../menu.js"></script>
+    <script src="menu.js"></script>
 </body>
 
 </html>
