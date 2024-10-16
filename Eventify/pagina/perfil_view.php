@@ -48,7 +48,7 @@
 <body class="login">
 
     <main class="container mt-3">
-        <div class="row fondo-container ">
+        <div class="row fondo-container">
             <div class="row container-img-perfil">
                 <img src="mostrar_imagen_perfil.php?id=<?php echo $user['ID_usuario']; ?>" alt="Foto de Perfil"
                     class="img-fluid perfil-img" style="max-width: 220px; max-height: 220px;">
@@ -58,7 +58,7 @@
                     <p><strong>CI:</strong> <?php echo htmlspecialchars($user['CI']); ?></p>
                     <p><strong>Genero:</strong> <?php echo htmlspecialchars($user['Genero']); ?></p>
                 </div>
-                <div class="col-md-3" style="padding-top: 20px">
+                <div class="col-md-3" style="padding-top: 40px">
                     <p><strong>Teléfono:</strong> <?php echo htmlspecialchars($user['Numero_telefono']); ?></p>
                     <p><strong>Correo:</strong> <?php echo htmlspecialchars($user['Correo_electronico']); ?></p>
                     <p><strong>Tipo de Usuario:</strong> <?php echo htmlspecialchars($user['Tipo_usuario']); ?></p>

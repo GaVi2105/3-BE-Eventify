@@ -63,17 +63,17 @@
                         <input type="email" class="form-control" id="correo" name="correo" required>
                     </div>
                     <div class="mb-3">
-    <label for="contrasenia" class="form-label">Contraseña:</label>
-    <div class="input-group">
-        <!-- Campo de contraseña -->
-        <input type="password" class="form-control" id="contrasenia" name="contrasenia" required>
-        
-        <!-- Ícono de ojo para mostrar/ocultar la contraseña -->
-        <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
-            <i class="bi bi-eye-slash" id="eyeIcon"></i>
-        </span>
-    </div>
-</div>
+                        <label for="contrasenia" class="form-label">Contraseña:</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="contrasenia" name="contrasenia" required>
+                            <span class="toggle-password" onclick="togglePasswordVisibility()" style="padding-top: 18px;padding-left: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
 
 
                     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
@@ -134,7 +134,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="../../../menu.js"></script>
+    <script src="../../menu.js"></script>
 </body>
 
 </html>
