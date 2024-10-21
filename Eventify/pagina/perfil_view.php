@@ -49,11 +49,11 @@
 
     <main class="container mt-3">
         <div class="row fondo-container">
-            <div class="row container-img-perfil">
+            <div class="row-perfil container-img-perfil">
                 <img src="mostrar_imagen_perfil.php?id=<?php echo $user['ID_usuario']; ?>" alt="Foto de Perfil"
                     class="img-fluid perfil-img" style="max-width: 220px; max-height: 220px;">
                 <div class="col-md-3">
-                    <h2><?php echo htmlspecialchars($user['Nombre']); ?></h2>
+                    <h2><?php echo htmlspecialchars($user['Nombre']); ?><a href="editar_perfil.php" class="btn btn-primary mt-3">Modificar Perfil</a></h2>
                     <p><strong>Edad:</strong> <?php echo htmlspecialchars($user['Edad']); ?></p>
                     <p><strong>CI:</strong> <?php echo htmlspecialchars($user['CI']); ?></p>
                     <p><strong>Genero:</strong> <?php echo htmlspecialchars($user['Genero']); ?></p>
@@ -64,11 +64,9 @@
                     <p><strong>Tipo de Usuario:</strong> <?php echo htmlspecialchars($user['Tipo_usuario']); ?></p>
                 </div>
             </div>
-
-            <a href="editar_perfil.php" class="btn btn-primary mt-3">Modificar Perfil</a>
             <main class="container mt-3">
                 <h1 lass="mb-3">Mis Eventos</h1>
-                <div style="border-radius: 100px;" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <div style="border-radius: 100px;" class="row-perfil row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                     <?php if (!empty($eventos)): ?>
                         <?php foreach ($eventos as $evento): ?>
                             <div class="evento">

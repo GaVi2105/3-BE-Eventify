@@ -49,7 +49,7 @@
 
 <body>
 
-    <main style="padding-top: 5%;" class="container mt-4">
+    <main style="padding-top: 8%;" class="container mt-4">
         <h2 class="mb-4">
             <?php echo ($tipo_usuario == 'organizador') ? 'Mis Eventos Creados' : 'Eventos en los que Participo'; ?>
         </h2>
@@ -74,7 +74,7 @@
                                 </p>
                                 <?php if ($tipo_usuario == 'organizador'): ?>
                                     <a href='editar_evento.php?id=<?php echo $evento['ID_evento']; ?>'
-                                        class='btn btn-primary me-2'>Editar</a>
+                                        class='btn btn btn-danger me' style="background-color: rgba(0, 123, 255, 0.9);">Editar</a>
                                     <a href='eliminar_evento.php?id=<?php echo $evento['ID_evento']; ?>' class='btn btn-danger'
                                         onclick='return confirm("¿Estás seguro de que quieres eliminar este evento?");'>Eliminar</a>
                                 <?php else: ?>

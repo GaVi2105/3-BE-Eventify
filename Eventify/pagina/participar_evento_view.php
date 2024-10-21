@@ -7,11 +7,8 @@
     <title>Participar en Evento - Eventify</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/styles.css">
-
-    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
-
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container-fluid">
@@ -46,10 +43,9 @@
         </div>
     </nav>
 </header>
-
 <body>
     <main class="container mt-5 pt-5">
-        <div style="margin-top: 75px; margin-rigth: 75px;" class="row justify-content-center">
+        <div style="margin-top: 75px;" class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card mb-4">
                     <img src="mostrar_imagen.php?id=<?php echo $evento['ID_evento']; ?>" class="card-img-top"
@@ -74,40 +70,40 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Mapa de ubicación -->
             <div class="col-md-6">
-                <div id="map" style="height: 400px; margin-left: 50px;"></div>
+                <div id="map" style="height: 400px; border-radius: 15px;"></div>
             </div>
         </div>
     </main>
-
-    <footer class="bg-primary text-white text-center py-3 mt-5">
-        <p>&copy; 2024 Eventify. Todos los derechos reservados.</p>
-    </footer>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-
-    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-    <script>
-        // Asumiendo que las coordenadas están disponibles en las variables PHP
-        var lat = <?php echo $evento['Latitud'] ?? '0'; ?>;
-        var lon = <?php echo $evento['Longitud'] ?? '0'; ?>;
+    <script>  
+    // Inicializa el mapa  
+    var map = L.map('map').setView([-32.3171, -58.08072], 13); // Ajusta el centro del mapa  
 
-        var map = L.map('map').setView([lat, lon], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {  
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'  
+    }).addTo(map);  
 
-        // Agregar capa de mapa
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        // Agregar marcador al mapa
-        var marker = L.marker([lat, lon]).addTo(map);
-        marker.bindPopup('<b>Ubicación del Evento</b>').openPopup();
-    </script>
+    // Supongamos que tienes un array de eventos en PHP llamado $eventos  
+    <?php if (!empty($eventos)) : ?>  
+        <?php foreach ($eventos as $evento) : ?>  
+            <?php  
+                // Supongamos que la ubicación está en formato "lat,lng"  
+                list($lat, $lng) = explode(',', $evento['Ubicacion']);  
+            ?>  
+            // Crear un marcador en la ubicación del evento  
+            var marker = L.marker([<?php echo $lat; ?>, <?php echo $lng; ?>]).addTo(map);  
+            // Asociar un popup al marcador con la información del evento  
+            marker.bindPopup('<b><?php echo $evento['Nombre']; ?></b><br><?php echo $evento['Descripcion']; ?><br><?php echo $evento['Fecha']; ?>');  
+        <?php endforeach; ?>  
+    <?php else : ?>  
+        console.log("No hay eventos disponibles para mostrar.");  
+    <?php endif; ?>  
+</script>
 </body>
 
 </html>

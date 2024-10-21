@@ -94,7 +94,7 @@ map.on('click', function (e) {
     marker = L.marker(e.latlng).addTo(map);
 
     // Guarda las coordenadas en el campo oculto
-    document.getElementById('ubicacion').value = e.latlng.lat + ',' + e.latlng.lng;
+    document.getElementById('ubicacion').value = e.latlng.lat + ',' + e.latlng.lng; // Cambia lat por lng
 
     // Llama a la función para obtener la dirección
     obtenerDireccion(e.latlng);
@@ -133,7 +133,3 @@ document.addEventListener('DOMContentLoaded', function () {
         eyeIcon.classList.toggle('bi-eye-slash');   // Ojo cerrado
     });
 });
-
-
-
-

@@ -49,17 +49,14 @@
             </div>
         </div>
     </nav>
-
 </header>
 
 <body>
-
-    
-    <main>
+<main style="padding-left: 0%;">
         <div id="mensajeFinalizado" class="alert alert-warning" style="display:none;">
             Este evento ha finalizado.
         </div>
-        <form action="eventos.php" method="get" style="padding-left: 70%;" class="mb-4">
+        <form action="eventos.php" method="get" class="mb-4">
             <div class="row g-3 align-items-center">
                 <div class="col-auto">
                     <select name="categoria" id="categoria" class="form-select">
@@ -76,8 +73,8 @@
                 </div>
             </div>
         </form>
-        </main>
-    <main style="margin-top: 100px;" class="container mt-4">
+    </main>
+    <main class="container mt-4">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <?php while ($evento = $eventos->fetch_assoc()): ?>
                 <div class="col">
@@ -97,7 +94,6 @@
                             </p>
 
                             <?php
-                            // Verificar si el evento ha finalizado
                             $fechaEvento = new DateTime($evento['Fecha']);
                             $fechaActual = new DateTime();
 

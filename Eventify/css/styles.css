@@ -1,7 +1,7 @@
 body {   
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
     margin: 0;
-    padding: 0;
+    padding-top: 1rem;
     background-color: #f9f9fa;
     color: #333;
     display: flex;
@@ -22,15 +22,18 @@ h1:hover, h2:hover {
 
 main {
     flex: 1;
-    padding: 2rem;
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
-    padding-top: 80px;
+    padding-top: 69px;
 }
 
 main img  {
     object-fit: cover;
+}
+
+.mt-4 {
+    margin-top: 0 !important;
 }
 
 .mt-5 {
@@ -47,6 +50,13 @@ main img  {
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease-in-out;
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 
 }
 
@@ -90,42 +100,46 @@ main img  {
 }
 
 .carousel-item img {
-    width: 100%; /* Asegura que las imágenes ocupen todo el ancho del carrusel */
-    object-fit: cover; /* Hace que las imágenes cubran el contenedor, manteniendo su aspecto */
-    display: block; /* Asegura que las imágenes no sean invisibles */
+    width: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-/* Ajustes responsivos para pantallas pequeñas */
-@media (max-width: 480px) {
-    .carousel-item img {
-        height: 300px; /* Reduce la altura de la imagen en pantallas pequeñas */
-        object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor */
-    }
-    .carousel-caption {
-        padding: 10px;
-        background: rgba(0, 0, 0, 0.5);
-    }
-    .banner-img {
-        width: 150px;
-        max-width: 70%;
-    }
-    .carousel-caption h1 {
-        font-size: 1.5rem;
-    }
-}
+@media (max-width: 750px) {  
+    body {  
+        padding-top: 1rem;  
+    }  
+    .carousel-item img {  
+        height: 300px;  
+        object-fit: contain;  
+    }  
+    .carousel-caption {    
+        background: rgba(0, 0, 0, 0.5);  
+    }  
+    .banner-img {  
+        width: 150px;  
+        max-width: 70%;  
+    }  
+    .carousel-caption h1 {  
+        font-size: 1.5rem;  
+    }  
+    /* Ocultar el carrusel en pantallas pequeñas */  
+    .carousel {  
+        display: none; /* Esto oculta el carrusel */  
+    }  
+}  
 
-/* Ajustes para pantallas muy pequeñas (como teléfonos) */
-@media (max-width: 480px) {
-    .carousel-item img {
-        height: 250px; /* Ajusta la altura en pantallas pequeñas */
-    }
-    .banner-img {
-        width: 100px;
-        max-width: 60%;
-    }
-    .carousel-caption h1 {
-        font-size: 1.2rem;
-    }
+@media (max-width: 480px) {  
+    .carousel-item img {  
+        height: 250px;  
+    }  
+    .banner-img {  
+        width: 100px;  
+        max-width: 60%;  
+    }  
+    .carousel-caption h1 {  
+        font-size: 1.2rem;  
+    }  
 }
 
 
@@ -194,6 +208,22 @@ main img  {
 
 .card-text {
     color: #555;
+}
+
+.alert {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    padding-bottom: 1rem;
+    position: cover;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #dc3546;
+    border-color: #dc354600;
 }
 
 button[type="submit"],
@@ -296,10 +326,9 @@ footer .btn-icon svg {
 @media (max-width: 768px) {
     main {
         padding-top: 70px; 
-        padding: 0;
+        /* padding: 3.5rem; */
     }
 
-    /* Ajustes al form */
     form {
         padding-top: 80px;
         margin: 0 auto;
@@ -317,7 +346,6 @@ footer .btn-icon svg {
         font-size: 1rem;
     }
 
-    /* Footer que se mueve con el contenido */
     footer {
         position: fixed;
         padding: 1rem 0;
@@ -349,7 +377,7 @@ footer .btn-icon svg {
 .event-card {
     margin-top: 50px;
     border: none;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .evento {
@@ -603,7 +631,7 @@ input[type="password"]:focus {
 }
 
 .row {
-    --bs-gutter-x: 0;
+   /*  --bs-gutter-x: 0; */
     --bs-gutter-y: 0;
     display: flex;
     flex-wrap: wrap;
@@ -611,6 +639,16 @@ input[type="password"]:focus {
     margin-right: calc(-.5* var(--bs-gutter-x));
     margin-left: calc(-.5* var(--bs-gutter-x));
 }
+
+.row-perfil {
+     --bs-gutter-x: 0;
+     --bs-gutter-y: 0;
+     display: flex;
+     flex-wrap: wrap;
+     margin-top: calc(-1* var(--bs-gutter-y));
+     margin-right: calc(-.5* var(--bs-gutter-x));
+     margin-left: calc(-.5* var(--bs-gutter-x));
+ }
 
 .perfil-img {
     width: 250px;
@@ -677,6 +715,6 @@ input[type="password"]:focus {
 }
 
 .event-card {
-    max-width: 300px; /* Ajusta el tamaño máximo de la tarjeta */
-    margin: auto; /* Centra la tarjeta en la página */
+    max-width: 300px;
+    margin: auto;
 }
