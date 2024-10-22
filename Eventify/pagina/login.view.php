@@ -74,12 +74,10 @@
                             </span>
                         </div>
                     </div>
-
-
                     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-                    <!-- <div class="mt-3">
-                        <a href="../funciones/usuaruio/recuperar_contrasenia.php" class="btn btn-link">¿Olvidaste tu contraseña?</a>
-                    </div> -->
+                    <div class="mt-3">
+                        <a href="../../funciones/usuario/recuperar_contrasena.php" class="btn btn-link">¿Olvidaste tu contraseña?</a>
+                    </div>
                 </form>
             </div>
         </div>

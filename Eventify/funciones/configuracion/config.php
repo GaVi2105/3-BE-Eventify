@@ -177,5 +177,8 @@ function mostrar_imagen_perfil($id_usuario) {
         header("Content-Type: image/png");
         readfile('../imagenes/imagen_generica.png');
     }
-}
+    
+// Comprobar conexión if ($conn->connect_error) {  
+die("Conexión fallida: " . $conn->connect_error);  
+}  
 ?>
