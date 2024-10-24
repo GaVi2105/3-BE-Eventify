@@ -76,7 +76,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                     <div class="mt-3">
-                        <a href="../../funciones/usuario/recuperar_contrasena.php" class="btn btn-link">¿Olvidaste tu contraseña?</a>
+                        <a href="../../funciones\usuario\enviar_correo_recuperacion.php" class="btn btn-link">¿Olvidaste tu contraseña?</a>
                     </div>
                 </form>
             </div>

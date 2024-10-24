@@ -1,0 +1,16 @@
+{
+    "name": "usuario/eventify",
+    "autoload": {
+        "psr-4": {
+            "Usuario\\Eventify\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "skip"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "*"
+    }
+}

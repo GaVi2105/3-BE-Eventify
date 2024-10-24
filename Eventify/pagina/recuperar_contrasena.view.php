@@ -44,13 +44,13 @@
     </nav>
 </header>
 <body class="login">
-    <main class="container mt-5">
+    <main style="padding-top: 5rem" class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6 login-container">
                 <h2 class="mb-4" style="text-align: center;">Recuperar Contraseña</h2>
-                <form class="needs-validation" action="activar_correo_recuperacion.php" method="POST">
-                    <label class="form-label" for="email">Ingresa tu correo electronico para restablecer la Contraseña:</label>
-                    <input class="form-control" type="email" id="email" name="email" required>
+                <form action="enviar_correo_recuperacion.php" method="POST">
+                    <label for="email">Ingresa tu correo electrónico para restablecer tu contraseña:</label>
+                    <input type="email" id="email" name="email" required>
                     <button type="submit">Enviar Enlace de Restablecimiento</button>
                 </form>
             </div>
